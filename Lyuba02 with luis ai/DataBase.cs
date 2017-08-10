@@ -7,11 +7,11 @@ namespace Lyuba02_with_luis_ai
     class DataBase
     {
 
-        private static string server = "myfuckingserver.database.windows.net";
-        private static string user = "adminadmin";
-        private static string password = "Admin1admin";
-        private static string database = "numbers";
-        
+        private static string server = "your_server.database.windows.net";
+        private static string user = "your_user";
+        private static string password = "your_password";
+        private static string database = "your_database";
+
         public bool IsExistNumber(string number)
         {
 

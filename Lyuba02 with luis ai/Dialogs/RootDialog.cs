@@ -4,12 +4,10 @@ using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
 using Microsoft.Bot.Builder.Luis.Models;
 using Microsoft.Bot.Builder.Luis;
-using System.Linq;
 
 namespace Lyuba02_with_luis_ai.Dialogs
 {
-    //id = "036dd2d7-e781-4bfd-901e-fd7bbac9e0db"
-    [LuisModel("c807d5c6-c25f-4cfb-9ea0-20a434823084", "a5bc87d7bfb348ca82ac4a4968bfc93d")]
+    [LuisModel("YourLuisAiId", "YourLuisAiPassword")]
     [Serializable]
     public class RootDialog : LuisDialog<Object>
     {
@@ -17,7 +15,6 @@ namespace Lyuba02_with_luis_ai.Dialogs
         [LuisIntent("BlaBla")]
         public async Task BlaBla(IDialogContext context, LuisResult result)
         {
-            //var room = (from entity in result.Entities where entity.Type == "room" select entity).FirstOrDefault();
             await context.PostAsync("Хорошо. А почему вы спрашиваете?");
             context.Wait(MessageReceived);
         }
@@ -134,7 +131,7 @@ namespace Lyuba02_with_luis_ai.Dialogs
                     currentNumberOrMail = text;
                     numberOn = true;
 
-                    //string myApiKey = "6D62E10C-B032-ADB1-5E4A-37F569AA71F5"; //API ключ от сайта http://sms.ru/
+                    //string myApiKey = "YourAPIKey"; //API ключ от сайта http://sms.ru/
                     //SmsRu sms = new SmsRu(myApiKey);
                     //var response = sms.Send("7" + text, code);
 
@@ -228,7 +225,7 @@ namespace Lyuba02_with_luis_ai.Dialogs
         {
 
             var msg = await argument;
-            string text = msg.Text.ToLower();
+            string text = msg.Text;
 
             if (helper.DeleteAll(text).Equals("отмена"))
             {
