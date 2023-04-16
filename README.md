@@ -1,4 +1,4 @@
 # LyubaBot
-bot
+Telegram Bot via LUIS.AI and Microsoft Azure DB
 
-bot for sms and email sending
+Bot for sending an sms and emails
